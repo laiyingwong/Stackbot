@@ -26,7 +26,3 @@ export default function robotsReducer(state=[], action) {
   return state;
 }
 
-// const robots = [
-//   { id: 1, name: 'R2-D2', imageUrl: '/images/r2d2.png' },
-//   { id: 2, name: 'WALL-E', imageUrl: '/images/walle.jpeg' },
-// ];

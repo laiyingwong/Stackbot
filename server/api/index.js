@@ -13,6 +13,7 @@ const router = require('express').Router()
 // router.use('/kittens', require('./kittens'))
 
 router.use('/robots', require('./robots'))
+router.use('/projects', require('./projects'))
 
 // If someone makes a request that starts with `/api`,
 // but you DON'T have a corresponding router, this piece of

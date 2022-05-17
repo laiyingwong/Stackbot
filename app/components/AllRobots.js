@@ -13,7 +13,7 @@ export class AllRobots extends React.Component {
   render() {
     const { robots } = this.props;
     return (
-      (robots === {} || robots === undefined) ?
+      (robots === [] || robots === undefined) ?
       (<h1>No Robots</h1>) :
       (<div>
         {robots.map(robot => {

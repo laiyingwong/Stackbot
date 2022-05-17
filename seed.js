@@ -21,12 +21,23 @@ const robots = [
     imageUrl: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9ib3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
   },
 ]
+
+const projects = [
+  { id: 1, title: 'Build barn', description: 'Lorem Ipsum' },
+  { id: 2, title: 'Discover love', completed: true},
+  { id: 3, title: 'Open the pod bay doors', priority: 10 },
+];
+
 const seed = async () => {
   try {
     await db.sync({ force: true });
     // seed your database here!
-    await Promise.all(robots.map(candy => {
-      return Robot.create(candy);
+    await Promise.all(robots.map(robot => {
+      return Robot.create(robot);
+    }));
+
+    await Promise.all(projects.map(project => {
+      return Project.create(project);
     }));
 
   } catch (err) {
