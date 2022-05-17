@@ -3,7 +3,7 @@ const { db } = require('../../server/db');
 const seed = require('../../seed');
 const { Robot, Project } = require('../../server/db');
 
-describe.only('Tier One: Project >-< Robot Association', () => {
+describe('Tier One: Project >-< Robot Association', () => {
   before(() => db.sync({ force: true }));
   afterEach(() => db.sync({ force: true }));
 

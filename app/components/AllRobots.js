@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchRobots } from '../redux/robots'
+import {Link} from 'react-router-dom'
 
 // Notice that we're exporting the AllRobots component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
@@ -16,11 +17,13 @@ export class AllRobots extends React.Component {
       (robots === [] || robots === undefined) ?
       (<h1>No Robots</h1>) :
       (<div>
-        {robots.map(robot => {
+        {robots.map((robot, idx) => {
           return (
-            <div key={robot.id}>
-              <h1>{robot.name}</h1>
-              <img src={robot.imageUrl} />
+            <div key={idx}>
+              <Link to={`/robots/${robot.id}`}>
+                <h1>{robot.name}</h1>
+                <img src={robot.imageUrl} />
+              </Link>
             </div>
           )
         })}
