@@ -28,6 +28,7 @@ const projects = [
   { id: 3, title: 'Open the pod bay doors', priority: 10 },
 ];
 
+
 const seed = async () => {
   try {
     await db.sync({ force: true });
@@ -40,10 +41,24 @@ const seed = async () => {
       return Project.create(project);
     }));
 
+    const project1 = await Project.findByPk(1);
+    const project2 = await Project.findByPk(2);
+
+    const robot1 = await Robot.findByPk(1);
+    const robot2 = await Robot.findByPk(2);
+
+    // at least one robot that has several projects
+    // at least one project that has several robots
+    await robot1.addProject(project1);
+    await robot1.addProject(project2);
+    await robot2.addProject(project2);
+
   } catch (err) {
     console.log(red(err));
   }
 };
+
+
 
 module.exports = seed;
 // If this module is being required from another module, then we just export the

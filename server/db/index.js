@@ -13,6 +13,10 @@ const Robot = require('./robot')
 //
 // Puppy.belongsTo(Owner)
 
+Project.belongsToMany(Robot, {through: 'Project_Robot'})
+Robot.belongsToMany(Project, {through: 'Project_Robot'});
+
+
 module.exports = {
   // Include your models in this exports object as well!
   db,
