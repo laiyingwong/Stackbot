@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import AllRobots from './AllRobots'
 import SingleRobot from './SingleRobot'
+import CreateRobot from './CreateRobot'
 import AllProjects from './AllProjects'
 import SingleProject from './SingleProject'
 

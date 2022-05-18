@@ -25,4 +25,14 @@ robotRouter.get('/:robotId', async (req, res, next) => {
   }
 })
 
+// POST api/robots
+robotRouter.post('/', async (req, res, next) => {
+  try {
+    const newRobot = await Robot.create(req.body);
+    res.json(newRobot)
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = robotRouter
