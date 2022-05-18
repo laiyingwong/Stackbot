@@ -23,8 +23,8 @@ const robots = [
 ]
 
 const projects = [
-  { id: 1, title: 'Build barn', description: 'Lorem Ipsum' },
-  { id: 2, title: 'Discover love', completed: true},
+  { id: 1, title: 'Build barn', description: 'Lorem Ipsum', priority: 10 },
+  { id: 2, title: 'Discover love', priority: 10, completed: true},
   { id: 3, title: 'Open the pod bay doors', priority: 10 },
 ];
 
@@ -49,9 +49,9 @@ const seed = async () => {
 
     // at least one robot that has several projects
     // at least one project that has several robots
-    await robot1.addProject(project1);
-    await robot1.addProject(project2);
-    await robot2.addProject(project2);
+    await robot1.addProject([project1, project2],{through: 'Project_Robot'});
+    await robot2.addProject(project2, {through: 'Project_Robot'});
+
 
   } catch (err) {
     console.log(red(err));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchSingleProject} from '../redux/singleProject';
+import { Link } from 'react-router-dom';
+import { fetchSingleProject } from '../redux/singleProject';
 
 
 class SingleProject extends React.Component {
@@ -14,17 +15,23 @@ class SingleProject extends React.Component {
     const deadline = project.deadline || ''
     const priority = project.priority
     const description = project.description || ''
-    const robots = project.robots || 'N/A' // NEED TO BE FIXED
+    const robots = project.robots
 
     return (
       <div>
         <h1>Title: {title}</h1>
-        <ul>
-          <li>Description: {description}</li>
-          <li>Priority: {priority}</li>
-          <li>Deadline: {deadline}</li>
-          <li>Robots: {robots}</li>
-        </ul>
+          <p>Description: {description}</p>
+          <p>Priority: {priority}</p>
+          <p>Deadline: {deadline}</p>
+          <div>Robots: { (! robots || robots.length === 0) ? 'No robot assigned at the moment!' :
+            (<ul>
+              {robots.map(robot => (
+                <Link to={`/robots/${robot.id}`}>
+                  <li key={robot.id}>{robot.name}</li>
+                </Link>
+              ))}
+            </ul>)
+            }</div>
       </div>
     )
   }

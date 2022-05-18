@@ -21,7 +21,7 @@ export const fetchProjects = () => {
 export default function projectsReducer(state=[], action) {
   switch (action.type) {
     case SET_PROJECTS:
-      return [...state, ...action.projects]
+      return action.projects
   }
   return state;
 }

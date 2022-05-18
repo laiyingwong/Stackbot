@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {fetchSingleRobot} from '../redux/singleRobot';
+import { Link } from 'react-router-dom';
+import { fetchSingleRobot } from '../redux/singleRobot';
 
 
 class SingleRobot extends React.Component {
@@ -9,17 +10,24 @@ class SingleRobot extends React.Component {
   }
 
   render() {
-    const { robot } = this.props
+
+    const { name, fuelType, fuelLevel, imageUrl, projects } = this.props.robot
 
     return (
       <div>
-        <h1>Name: {robot.name}</h1>
-        <ul>
-          <li>Fuel Type: {robot.fuelType}</li>
-          <li>Fuel Level: {robot.fuelLevel}</li>
-          <li>Projects: {robot.projects || 'N/A'}</li>
-        </ul>
-        <img src={robot.imageUrl} style={{width: '300px', height: 'auto'}}/>
+        <h1>Name: {name}</h1>
+          <p>Fuel Type: {fuelType}</p>
+          <p>Fuel Level: {fuelLevel}</p>
+          <div>Projects: { (! projects || projects.length === 0) ? 'No task assigned at the moment!' :
+            (<ul>
+              {projects.map(project => (
+                <Link to={`/projects/${project.id}`}>
+                  <li key={project.id}>{project.title}</li>
+                </Link>
+              ))}
+            </ul>)
+            }</div>
+        <img src={imageUrl} style={{width: '300px', height: 'auto'}}/>
       </div>
     )
   }

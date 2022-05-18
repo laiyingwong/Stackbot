@@ -1,5 +1,6 @@
 const robotRouter = require('express').Router()
 const Robot = require('../db/robot')
+const Project = require('../db/project')
 
 // GET /api/robots/
 robotRouter.get('/', async (req, res, next) => {
@@ -14,8 +15,11 @@ robotRouter.get('/', async (req, res, next) => {
 // GET /api/robots/:robotId
 robotRouter.get('/:robotId', async (req, res, next) => {
   try {
-    const robot = await Robot.findByPk(req.params.robotId);
+    const robot = await Robot.findByPk(req.params.robotId, {
+      include: Project
+    });
     res.json(robot)
+
   } catch (err) {
     next(err)
   }

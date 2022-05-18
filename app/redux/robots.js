@@ -21,7 +21,7 @@ export const fetchRobots = () => {
 export default function robotsReducer(state=[], action) {
   switch (action.type) {
     case SET_ROBOTS:
-      return [...state, ...action.robots]
+      return action.robots
   }
   return state;
 }

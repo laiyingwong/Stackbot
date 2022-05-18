@@ -24,9 +24,9 @@ const Routes = () => {
           <p>This seems like a nice place to get started with some Routes!</p>
         </main>
         <Route exact path="/robots" component={AllRobots} />
-        <Route exact path="/robots/:robotId" component={SingleRobot} />
+        <Route path="/robots/:robotId" component={SingleRobot} />
         <Route exact path="/projects" component={AllProjects} />
-        <Route exact path="/projects/:projectId" component={SingleProject} />
+        <Route path="/projects/:projectId" component={SingleProject} />
 
       </div>
     </Router>
