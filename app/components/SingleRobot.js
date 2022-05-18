@@ -6,7 +6,6 @@ import {fetchSingleRobot} from '../redux/singleRobot';
 class SingleRobot extends React.Component {
   componentDidMount () {
     this.props.loadSingleRobot(this.props.match.params.robotId)
-    console.log(this.props.robot)
   }
 
   render() {

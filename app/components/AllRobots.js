@@ -22,7 +22,7 @@ export class AllRobots extends React.Component {
             <div key={idx}>
               <Link to={`/robots/${robot.id}`}>
                 <h1>{robot.name}</h1>
-                <img src={robot.imageUrl} />
+                <img src={robot.imageUrl} style={{width: '300px', height: 'auto'}}/>
               </Link>
             </div>
           )
