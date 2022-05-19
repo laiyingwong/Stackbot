@@ -12,6 +12,16 @@ robotRouter.get('/', async (req, res, next) => {
   }
 })
 
+// POST api/robots/
+robotRouter.post('/', async (req, res, next) => {
+  try {
+    const newRobot = await Robot.create(req.body);
+    res.json(newRobot)
+  } catch (err) {
+    next(err);
+  }
+});
+
 // GET /api/robots/:robotId
 robotRouter.get('/:robotId', async (req, res, next) => {
   try {
@@ -25,13 +35,14 @@ robotRouter.get('/:robotId', async (req, res, next) => {
   }
 })
 
-// POST api/robots
-robotRouter.post('/', async (req, res, next) => {
+
+// DELETE /api/robots/:robotId
+robotRouter.delete('/:robotId', async (req, res, next) => {
   try {
-    const newRobot = await Robot.create(req.body);
-    res.json(newRobot)
-  } catch (err) {
-    next(err);
+    await Robot.destroy({where: {id: req.params.robotId}});
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
   }
 });
 

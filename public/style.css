@@ -31,3 +31,7 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+
+.remove-robot {
+  display: inline
+}

@@ -26,9 +26,11 @@ class SingleProject extends React.Component {
           <div>Robots: { (! robots || robots.length === 0) ? 'No robot assigned at the moment!' :
             (<ul>
               {robots.map(robot => (
-                <Link to={`/robots/${robot.id}`}>
-                  <li key={robot.id}>{robot.name}</li>
-                </Link>
+                <div key={robot.id}>
+                  <Link to={`/robots/${robot.id}`}>
+                    <li>{robot.name}</li>
+                  </Link>
+                </div>
               ))}
             </ul>)
             }</div>
