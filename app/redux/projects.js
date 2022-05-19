@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const SET_PROJECTS = 'SET_PROJECTS';
 const CREATE_PROJECT = 'CREATE_PROJECT';
+const DELETE_PROJECT = 'DELETE_PROJECT';
 
 export const _setProjects = (projects) => {
   return {
@@ -14,6 +15,13 @@ export const _createProject = (project) => {
   return {
     type: CREATE_PROJECT,
     project
+  }
+}
+
+export const _deleteProject = (id) => {
+  return {
+    type: DELETE_PROJECT,
+    id
   }
 }
 
@@ -31,6 +39,13 @@ export const createProject = (project) => {
   };
 };
 
+export const deleteProject = (id) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/projects/${id}`);
+    dispatch(_deleteProject(id));
+  }
+};
+
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
 export default function projectsReducer(state=[], action) {
@@ -39,6 +54,8 @@ export default function projectsReducer(state=[], action) {
       return action.projects;
     case CREATE_PROJECT:
       return [...state, action.project];
+    case DELETE_PROJECT:
+      return state.filter((project) => project.id !== action.id);
   }
   return state;
 }

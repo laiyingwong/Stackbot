@@ -12,6 +12,16 @@ projectRouter.get('/', async (req, res, next) => {
   }
 })
 
+// POST api/projects/
+projectRouter.post('/', async (req, res, next) => {
+  try {
+    const newProject = await Project.create(req.body);
+    res.json(newProject)
+  } catch (err) {
+    next(err);
+  }
+});
+
 // GET /api/projects/:projectId
 projectRouter.get('/:projectId', async (req, res, next) => {
   try {
@@ -24,13 +34,14 @@ projectRouter.get('/:projectId', async (req, res, next) => {
   }
 })
 
-// POST api/projects
-projectRouter.post('/', async (req, res, next) => {
+
+// DELETE /api/projects/:projectId
+projectRouter.delete('/:projectId', async (req, res, next) => {
   try {
-    const newProject = await Project.create(req.body);
-    res.json(newProject)
-  } catch (err) {
-    next(err);
+    await Project.destroy({where: {id: req.params.projectId}});
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
   }
 });
 module.exports = projectRouter
