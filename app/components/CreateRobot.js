@@ -26,7 +26,6 @@ class CreateRobot extends React.Component {
   }
 
   render() {
-    console.log('PROPS', this.props)
     const { name } = this.state;
     const { handleSubmit, handleChange } = this;
 

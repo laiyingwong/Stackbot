@@ -24,4 +24,13 @@ projectRouter.get('/:projectId', async (req, res, next) => {
   }
 })
 
+// POST api/projects
+projectRouter.post('/', async (req, res, next) => {
+  try {
+    const newProject = await Project.create(req.body);
+    res.json(newProject)
+  } catch (err) {
+    next(err);
+  }
+});
 module.exports = projectRouter

@@ -16,7 +16,6 @@ module.exports = db.define('project', {
 
   priority: {
     type: Sequelize.INTEGER,
-    allowNull: false,
     validate: {
       max: 10,
       min: 1
