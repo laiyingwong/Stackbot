@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import AllRobots from './AllRobots'
 import SingleRobot from './SingleRobot'
 import CreateRobot from './CreateRobot'
+import EditRobot from './EditRobot'
 import AllProjects from './AllProjects'
 import SingleProject from './SingleProject'
 
@@ -25,7 +26,8 @@ const Routes = () => {
           <p>This seems like a nice place to get started with some Routes!</p>
         </main>
         <Route exact path="/robots" component={AllRobots} />
-        <Route path="/robots/:robotId" component={SingleRobot} />
+        <Route exact path="/robots/:robotId" component={SingleRobot} />
+        <Route path="/robots/:robotId/edit" component={EditRobot} />
         <Route exact path="/projects" component={AllProjects} />
         <Route path="/projects/:projectId" component={SingleProject} />
 

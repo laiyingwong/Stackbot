@@ -5,13 +5,14 @@ import { fetchSingleRobot } from '../redux/singleRobot';
 
 
 class SingleRobot extends React.Component {
+
   componentDidMount () {
     this.props.loadSingleRobot(this.props.match.params.robotId)
   }
 
   render() {
 
-    const { name, fuelType, fuelLevel, imageUrl, projects } = this.props.robot
+    const { id, name, fuelType, fuelLevel, imageUrl, projects } = this.props.robot
 
     return (
       <div>
@@ -21,13 +22,18 @@ class SingleRobot extends React.Component {
           <div>Projects: { (! projects || projects.length === 0) ? 'No task assigned at the moment!' :
             (<ul>
               {projects.map(project => (
-                <Link to={`/projects/${project.id}`}>
+                <div key={project.id}>
+                  <Link to={`/projects/${project.id}`}>
                   <li key={project.id}>{project.title}</li>
-                </Link>
+                  </Link>
+                </div>
               ))}
             </ul>)
             }</div>
         <img src={imageUrl} style={{width: '300px', height: 'auto'}}/>
+        <Link to={`/robots/${id}/edit`}>
+          <button type="button">Edit</button>
+        </Link>
       </div>
     )
   }

@@ -35,8 +35,8 @@ class CreateProject extends React.Component {
         <label htmlFor="title">Creare a new project:</label>
         <input name="title" value={title} placeholder="new project title" onChange={handleChange}/>
         <br />
-        <label htmlFor="number">Priority level (1-10): </label>
-        <input type='number' name="priority" value={priority} max='10'min='1' onChange={handleChange}/>
+        <label htmlFor="priority">Priority level (1-10): </label>
+        <input type="number" name="priority" value={priority}max="10" min="1" onChange={handleChange}/>
         <br />
         <button type="submit">Create!</button>
       </form>

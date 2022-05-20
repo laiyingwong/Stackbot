@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { createRobot } from '../redux/robots';
+import RobotForm from './RobotForm'
 
 
 class CreateRobot extends React.Component {
@@ -9,6 +10,8 @@ class CreateRobot extends React.Component {
     super();
     this.state = {
       name: '',
+      fuelType: 'Electric',
+      fuelLevel: 0
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,6 +21,7 @@ class CreateRobot extends React.Component {
     this.setState({
       [evt.target.name]: evt.target.value,
     });
+    console.log(this.state)
   }
 
   handleSubmit(evt) {
@@ -26,15 +30,14 @@ class CreateRobot extends React.Component {
   }
 
   render() {
-    const { name } = this.state;
+    const { name, fuelType, fuelLevel } = this.state;
     const { handleSubmit, handleChange } = this;
 
     return (
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Creare a new robot:</label>
-        <input name="name" value={name} placeholder="new robot name" onChange={handleChange}/>
-        <button type="submit">Create!</button>
-      </form>
+      <div>
+        <h3>Create a new robot:</h3>
+        <RobotForm name={name} fuelLevel={fuelLevel} fuelType={fuelType} buttonName={'Create!'} handleChange={handleChange} handleSubmit={handleSubmit} />
+      </div>
     );
   }
 }

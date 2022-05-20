@@ -35,6 +35,15 @@ robotRouter.get('/:robotId', async (req, res, next) => {
   }
 })
 
+// PUT /api/todos/:robotId
+robotRouter.put('/:robotId', async (req, res, next) => {
+  try {
+    const robotToUpdate = await Robot.findByPk(req.params.robotId);
+    res.send(await robotToUpdate.update(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
 
 // DELETE /api/robots/:robotId
 robotRouter.delete('/:robotId', async (req, res, next) => {
