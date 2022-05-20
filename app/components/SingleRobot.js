@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleRobot } from '../redux/singleRobot';
+import { deleteProject } from '../redux/projects'
 
 
 class SingleRobot extends React.Component {
@@ -26,6 +27,7 @@ class SingleRobot extends React.Component {
                   <Link to={`/projects/${project.id}`}>
                   <li key={project.id}>{project.title}</li>
                   </Link>
+                  <button onClick={() => this.props.deleteProject(project.id)}>Unassign</button>
                 </div>
               ))}
             </ul>)
@@ -47,7 +49,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    loadSingleRobot: (id) => dispatch(fetchSingleRobot(id))
+    loadSingleRobot: (id) => dispatch(fetchSingleRobot(id)),
+    deleteProject: (id) => dispatch(deleteProject(id))
   };
 };
 

@@ -11,8 +11,8 @@ module.exports = db.define('robot', {
   },
 
   fuelType: {
-    type: Sequelize.ENUM('gas', 'diesel', 'electric'),
-    defaultValue: 'electric'
+    type: Sequelize.ENUM('Gas', 'Diesel', 'Electric'),
+    defaultValue: 'Electric'
   },
 
   fuelLevel: {

@@ -4,19 +4,19 @@ const { db, Project, Robot } = require('./server/db');
 const robots = [
   {
     name: 'Hope',
-    fuelType: 'gas',
+    fuelType: 'Gas',
     fuelLevel: 50,
     imageUrl: 'https://images.unsplash.com/photo-1585422168344-4d9e7a8c91ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdhcyUyMHJvYm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
   },
   {
     name: 'WALL-E',
-    fuelType: 'diesel',
+    fuelType: 'Diesel',
     fuelLevel: 60,
     imageUrl: 'https://images.unsplash.com/photo-1589254066213-a0c9dc853511?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cm9ib3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
   },
   {
     name: 'Rock',
-    fuelType: 'electric',
+    fuelType: 'Electric',
     fuelLevel: 70,
     imageUrl: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9ib3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
   },
