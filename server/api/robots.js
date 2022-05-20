@@ -54,6 +54,7 @@ robotRouter.put('/:robotId/unassign-project', async (req, res, next) => {
     });
     await robot.removeProject(req.body.id);
     res.send(await Project.findByPk(req.body.id));
+
   } catch (error) {
     next(error);
   }

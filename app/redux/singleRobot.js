@@ -60,7 +60,6 @@ export default function singleRobotReducer(state={}, action) {
       return {...state, robot: action.robot};
 
     case UNASSIGN_SINGLE_PROJECT:
-      console.log(action.unassignedProject)
       const assignedProjects = state.projects.filter(project => project.id !== action.unassignedProject.id);
       return {...state, projects: assignedProjects}
   }

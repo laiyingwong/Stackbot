@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const SET_SINGLE_PROJECT = 'SET_SINGLE_PROJECT';
 const UPDATE_SINGLE_PROJECT = 'UPDATE_SINGLE_PROJECT';
+const UNASSIGN_SINGLE_ROBOT ='UNASSIGN_SINGLE_ROBOT';
 
 
 export const _setSingleProject = (project) => {
@@ -19,6 +20,13 @@ export const _updateSingleProject = (project) => {
   }
 };
 
+export const _unassignSingleRobot = (unassignedRobot) => {
+  return {
+    type: UNASSIGN_SINGLE_ROBOT,
+    unassignedRobot
+  }
+}
+
 export const fetchSingleProject = (id) => {
   return async (dispatch) => {
     const { data } = await axios.get(`/api/projects/${id}`);
@@ -34,7 +42,13 @@ export const updateSingleProject = (project, history) => {
   }
 };
 
-
+export const unassignSingleRobot = (projectId, robot, history) => {
+  return async (dispatch) => {
+    const { data: unassigned } = await axios.put(`/api/projects/${projectId}/unassign-robot`, robot);
+    dispatch(_unassignSingleRobot(unassigned));
+    history.goBack();
+  }
+};
 
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
@@ -45,6 +59,10 @@ export default function singleProjectReducer(state={}, action) {
 
     case UPDATE_SINGLE_PROJECT:
       return action.project;
+
+    case UNASSIGN_SINGLE_ROBOT:
+    const assignedRobots = state.robots.filter(robot => robot.id !== action.unassignedRobot.id);
+    return {...state, robots: assignedRobots}
   }
   return state;
 }

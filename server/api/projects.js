@@ -44,6 +44,22 @@ projectRouter.put('/:projectId', async (req, res, next) => {
   }
 });
 
+// PUT /api/projects/:projectId/unassign-robot
+projectRouter.put('/:projectId/unassign-robot', async (req, res, next) => {
+  try {
+
+    const project = await Project.findByPk(req.params.projectId, {
+      include: Robot
+    });
+    const robotToUnassign = await Robot.findByPk(req.body.id)
+    await project.removeRobot(robotToUnassign);
+    res.send(robotToUnassign);
+
+  } catch (error) {
+    next(error);
+  }
+})
+
 // DELETE /api/projects/:projectId
 projectRouter.delete('/:projectId', async (req, res, next) => {
   try {
