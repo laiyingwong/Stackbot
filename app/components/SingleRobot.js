@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleRobot } from '../redux/singleRobot';
-import { deleteProject } from '../redux/projects'
+import { deleteProject } from '../redux/projects';
 
 
 class SingleRobot extends React.Component {

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchSingleProject } from '../redux/singleProject';
+import { deleteRobot } from '../redux/robots';
 
 
 class SingleProject extends React.Component {
@@ -30,6 +31,7 @@ class SingleProject extends React.Component {
                   <Link to={`/robots/${robot.id}`}>
                     <li>{robot.name}</li>
                   </Link>
+                  <button onClick={() => this.props.deleteRobot(robot.id)}>Unassign</button>
                 </div>
               ))}
             </ul>
@@ -37,6 +39,7 @@ class SingleProject extends React.Component {
             <Link to={`/projects/${project.id}/edit`}>
               <button type="button">Edit</button>
            </Link>
+           <button>Complete</button>
       </div>
     )
   }
@@ -50,7 +53,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    loadSingleProject: (id) => dispatch(fetchSingleProject(id))
+    loadSingleProject: (id) => dispatch(fetchSingleProject(id)),
+    deleteRobot: (id) => dispatch(deleteRobot(id))
   };
 };
 
