@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const SET_SINGLE_PROJECT = 'SET_SINGLE_PROJECT';
-const UPDATE_SINGLE_PROJECT = 'UPDATE_SINGLE_Project';
+const UPDATE_SINGLE_PROJECT = 'UPDATE_SINGLE_PROJECT';
+
 
 export const _setSingleProject = (project) => {
   return {
@@ -9,6 +10,7 @@ export const _setSingleProject = (project) => {
     project
   }
 };
+
 
 export const _updateSingleProject = (project) => {
   return {
@@ -32,9 +34,11 @@ export const updateSingleProject = (project, history) => {
   }
 };
 
+
+
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
-export default function singleProjectReducer(state=[], action) {
+export default function singleProjectReducer(state={}, action) {
   switch (action.type) {
     case SET_SINGLE_PROJECT:
       return action.project;
