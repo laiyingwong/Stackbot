@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { createProject } from '../redux/projects';
+import ProjectForm from './ProjectForm'
 
 
 class CreateProject extends React.Component {
@@ -31,15 +32,10 @@ class CreateProject extends React.Component {
     const { handleSubmit, handleChange } = this;
 
     return (
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Creare a new project:</label>
-        <input name="title" value={title} placeholder="new project title" onChange={handleChange}/>
-        <br />
-        <label htmlFor="priority">Priority level (1-10): </label>
-        <input type="number" name="priority" value={priority}max="10" min="1" onChange={handleChange}/>
-        <br />
-        <button type="submit">Create!</button>
-      </form>
+      <div>
+        <h3>Create a new project:</h3>
+        <ProjectForm title={title} priority={priority} buttonName={"Create!"} handleChange={handleChange} handleSubmit={handleSubmit} />
+      </div>
     );
   }
 }

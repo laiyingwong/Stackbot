@@ -35,7 +35,7 @@ robotRouter.get('/:robotId', async (req, res, next) => {
   }
 })
 
-// PUT /api/todos/:robotId
+// PUT /api/robots/:robotId
 robotRouter.put('/:robotId', async (req, res, next) => {
   try {
     const robotToUpdate = await Robot.findByPk(req.params.robotId);

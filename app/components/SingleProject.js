@@ -32,8 +32,11 @@ class SingleProject extends React.Component {
                   </Link>
                 </div>
               ))}
-            </ul>)
-            }</div>
+            </ul>
+            )}</div>
+            <Link to={`/projects/${project.id}/edit`}>
+              <button type="button">Edit</button>
+           </Link>
       </div>
     )
   }

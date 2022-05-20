@@ -41,7 +41,6 @@ export default function singleRobotReducer(state=[], action) {
       return action.robot;
 
     case UPDATE_SINGLE_ROBOT:
-      console.log(state);
       return action.robot;
   }
 

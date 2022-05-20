@@ -34,6 +34,15 @@ projectRouter.get('/:projectId', async (req, res, next) => {
   }
 })
 
+// PUT /api/projects/:projectId
+projectRouter.put('/:projectId', async (req, res, next) => {
+  try {
+    const projectToUpdate = await Project.findByPk(req.params.projectId);
+    res.send(await projectToUpdate.update(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
 
 // DELETE /api/projects/:projectId
 projectRouter.delete('/:projectId', async (req, res, next) => {

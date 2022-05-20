@@ -6,6 +6,7 @@ import CreateRobot from './CreateRobot'
 import EditRobot from './EditRobot'
 import AllProjects from './AllProjects'
 import SingleProject from './SingleProject'
+import EditProject from './EditProject'
 
 
 const Routes = () => {
@@ -28,8 +29,10 @@ const Routes = () => {
         <Route exact path="/robots" component={AllRobots} />
         <Route exact path="/robots/:robotId" component={SingleRobot} />
         <Route path="/robots/:robotId/edit" component={EditRobot} />
+
         <Route exact path="/projects" component={AllProjects} />
-        <Route path="/projects/:projectId" component={SingleProject} />
+        <Route exact path="/projects/:projectId" component={SingleProject} />
+        <Route path="/projects/:projectId/edit" component={EditProject} />
 
       </div>
     </Router>
