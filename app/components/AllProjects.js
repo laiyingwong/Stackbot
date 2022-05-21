@@ -21,10 +21,11 @@ export class AllProjects extends React.Component {
         (<h1>No Projects</h1>) :
         (<div>
           {projects.map(project => {
+            const status = project.completed ? 'completed' : 'in progress';
             return (
               <div key={project.id}>
                 <Link to={`/projects/${project.id}`}>
-                <h1 className="remove-project">{project.title}</h1>
+                <h1 className="remove-project">{`${project.title} (${status})`}</h1>
                 </Link>
                 <button className="remove-project" onClick={() => deleteProject(project.id)}>❌</button>
               </div>

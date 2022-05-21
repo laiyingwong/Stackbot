@@ -1,14 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchSingleProject } from '../redux/singleProject';
-import { deleteRobot } from '../redux/robots';
-import { unassignSingleRobot } from '../redux/singleProject';
+import { fetchSingleProject, unassignSingleRobot, updateSingleProject } from '../redux/singleProject';
 
 
 class SingleProject extends React.Component {
+  constructor () {
+    super();
+    this.markComplete = this.markComplete.bind(this)
+  }
   componentDidMount () {
     this.props.loadSingleProject(this.props.match.params.projectId)
+  }
+
+  markComplete () {
+    this.props.updateSingleProject({...this.props.project, completed: true})
   }
 
   render() {
@@ -18,14 +24,16 @@ class SingleProject extends React.Component {
     const priority = project.priority
     const description = project.description || ''
     const robots = project.robots
+    const status = project.completed ? 'completed' : 'in progress'
 
+    console.log(this.props)
     return (
       <div>
-        <h1>Title: {title}</h1>
+          <h1>{`${title} (${status})`}</h1>
           <p>Description: {description}</p>
           <p>Priority: {priority}</p>
           <p>Deadline: {deadline}</p>
-          <div>Robots: { (! robots || robots.length === 0) ? 'No robot assigned at the moment!' :
+          <div>Robots: { (!robots || robots.length === 0) ? 'No robot assigned at the moment!' :
             (<ul>
               {robots.map(robot => (
                 <div key={robot.id}>
@@ -42,7 +50,7 @@ class SingleProject extends React.Component {
             <Link to={`/projects/${project.id}/edit`}>
               <button type="button">Edit</button>
            </Link>
-           <button>Complete</button>
+           <button onClick={() => this.markComplete()}>Complete</button>
       </div>
     )
   }
@@ -57,7 +65,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch, {history}) => {
   return {
     loadSingleProject: (id) => dispatch(fetchSingleProject(id)),
-    unassignSingleRobot: (projectId,robot) => dispatch(unassignSingleRobot(projectId, robot, history))
+    unassignSingleRobot: (projectId,robot) => dispatch(unassignSingleRobot(projectId, robot, history)),
+    updateSingleProject: (project) => dispatch(updateSingleProject(project))
   };
 };
 

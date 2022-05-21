@@ -24,7 +24,7 @@ const robots = [
 
 const projects = [
   { id: 1, title: 'Build barn', description: 'Lorem Ipsum', priority: 10 },
-  { id: 2, title: 'Discover love', priority: 10, completed: true},
+  { id: 2, title: 'Discover love', priority: 10},
   { id: 3, title: 'Open the pod bay doors', priority: 10 },
 ];
 
