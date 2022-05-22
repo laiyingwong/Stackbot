@@ -13,13 +13,13 @@ class EditRobot extends React.Component {
       fuelType: 'Electric',
       fuelLevel: 0
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount () {
     this.props.loadSingleRobot(this.props.match.params.robotId)
-    console.log(this.props);
   }
 
   componentWillUnmount() {
@@ -34,7 +34,6 @@ class EditRobot extends React.Component {
         fuelLevel: this.props.robot.fuelLevel || 100
       });
     }
-    console.log('State inside componentDidUpdate', this.state)
   }
 
   handleChange(evt) {
@@ -63,11 +62,9 @@ class EditRobot extends React.Component {
 }
 
 
-const mapState = (state) => {
-  return {
+const mapState = (state) => ({
     robot: state.singleRobot
-  };
-};
+});
 
 const mapDispatch = (dispatch, {history}) => {
   return {

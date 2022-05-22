@@ -14,11 +14,12 @@ const Routes = () => {
   return (
     <Router>
       <div>
+
         <nav className="navbar navbar-expand-sm sticky-top">
 
           <Link to="/" className="navbar-brand">
-
             Stackb<span><i className="bi bi-robot"></i></span>t</Link>
+
           <button
             className="navbar-toggler"
             data-toggle="collapse"
@@ -26,20 +27,17 @@ const Routes = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div className="collapse navbar-collapse" id="expandme">
             <Link to='/' className="nav-item nav-link" >Homepage</Link>
             <Link to='/robots' className="nav-item nav-link">Robots</Link>
             <Link to='/projects' className="nav-item nav-link">Projects</Link>
           </div>
+
         </nav>
-        <main>
-          {/* <h1>
-            Welcome to StackBot Project Management: your robot employees are
-            awaiting assignments!
-          </h1>
-          <p>This seems like a nice place to get started with some Routes!</p> */}
-        </main>
+
         <Route exact path="/" component={Homepage} />
+
         <Route exact path="/robots" component={AllRobots} />
         <Route exact path="/robots/:robotId" component={SingleRobot} />
         <Route exact path="/robots/:robotId/edit" component={EditRobot} />

@@ -5,6 +5,7 @@ export default function RobotForm (props) {
 
     return (
       <div className="robot-form row justify-content-center">
+
         <form onSubmit={handleSubmit}>
 
           <div className="form-group">
@@ -28,7 +29,9 @@ export default function RobotForm (props) {
           <br />
 
           <button className="robot-form-btn btn btn-info"  type="submit">{buttonName}</button>
+
         </form>
+
       </div>
     );
 }

@@ -12,13 +12,13 @@ class EditProject extends React.Component {
       title: '',
       priority: 1
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount () {
     this.props.loadSingleProject(this.props.match.params.projectId)
-    console.log(this.props);
   }
 
   componentWillUnmount() {
@@ -32,7 +32,6 @@ class EditProject extends React.Component {
         priority: this.props.project.priority
       });
     }
-    console.log('State inside componentDidUpdate', this.state)
   }
 
   handleChange(evt) {
@@ -53,7 +52,7 @@ class EditProject extends React.Component {
     return (
       <div className="container edit-project">
         <h1 className="title"> Edit {title}</h1>
-          <hr />
+        <hr />
         <ProjectForm title={title} priority={priority} buttonName={"Done!"} handleChange={handleChange} handleSubmit={handleSubmit} />
       </div>
     );
@@ -61,11 +60,9 @@ class EditProject extends React.Component {
 }
 
 
-const mapState = (state) => {
-  return {
+const mapState = (state) => ({
     project: state.singleProject
-  };
-};
+});
 
 const mapDispatch = (dispatch, {history}) => {
   return {

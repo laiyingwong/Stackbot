@@ -9,6 +9,7 @@ class SingleProject extends React.Component {
     super();
     this.markComplete = this.markComplete.bind(this)
   }
+
   componentDidMount () {
     this.props.loadSingleProject(this.props.match.params.projectId)
   }
@@ -19,11 +20,10 @@ class SingleProject extends React.Component {
 
   render() {
     const { project } = this.props
-    const title = project.title
+    const { title, priority, robots} = project
+
     const deadline = project.deadline || 'ASAP'
-    const priority = project.priority
     const description = project.description || 'We got this!'
-    const robots = project.robots
 
     const status = project.completed ? 'completed' : 'in progress'
     const statusBadge = project.completed ? 'badge badge-pill badge-info' : 'badge badge-pill badge-warning'
@@ -32,8 +32,9 @@ class SingleProject extends React.Component {
 
     return (
       <div className="container single-project">
-          <h1 className="title">{title}<sup><span className={statusBadge}>{status}</span></sup></h1>
-          <hr />
+
+        <h1 className="title">{title}<sup><span className={statusBadge}>{status}</span></sup></h1>
+        <hr />
 
         <div className="row align-items-center content">
 
@@ -42,7 +43,9 @@ class SingleProject extends React.Component {
           </div>
 
           <div className="single-project-content col-md-8 text-center order-1 order-md-2">
+
               <div className="col-10 col-lg-8 mb-5 mb-md-0">
+
                   <p>Description: {description}</p>
                   <p>Priority: {priority}</p>
                   <p>Deadline: {deadline}</p>
@@ -53,6 +56,7 @@ class SingleProject extends React.Component {
                           <Link to={`/robots/${robot.id}`}>
                             <li>{robot.name}</li>
                           </Link>
+
                           <Link to={`projects/${project.id}/unassign-robot`} >
                           <button className="btn btn-danger" onClick={() => this.props.unassignSingleRobot(project.id, robot)}>Unassign</button>
                           </Link>
@@ -60,12 +64,14 @@ class SingleProject extends React.Component {
                       ))}
                     </ul>
                     )}</div>
-                    <div className="single-project-btns">
-                      <button className="btn btn-info" disabled={disabled} onClick={() => this.markComplete()}>Mark as Complete</button>
-                      <Link to={`/projects/${project.id}/edit`}>
-                        <button className="edit-btn btn btn-success" type="button">Edit</button>
-                     </Link>
-                    </div>
+
+                  <div className="single-project-btns">
+                    <button className="btn btn-info" disabled={disabled} onClick={() => this.markComplete()}>Mark as Complete</button>
+                    <Link to={`/projects/${project.id}/edit`}>
+                      <button className="edit-btn btn btn-success" type="button">Edit</button>
+                    </Link>
+                  </div>
+
               </div>
           </div>
         </div>
@@ -74,11 +80,9 @@ class SingleProject extends React.Component {
   }
 }
 
-const mapState = (state) => {
-  return {
+const mapState = (state) => ({
     project: state.singleProject
-  };
-};
+});
 
 const mapDispatch = (dispatch, {history}) => {
   return {
@@ -89,3 +93,4 @@ const mapDispatch = (dispatch, {history}) => {
 };
 
 export default connect(mapState, mapDispatch)(SingleProject);
+

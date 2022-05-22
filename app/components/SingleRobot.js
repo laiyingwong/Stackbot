@@ -12,7 +12,6 @@ class SingleRobot extends React.Component {
   }
 
   render() {
-
     const { id, name, fuelType, fuelLevel, imageUrl, projects } = this.props.robot
 
     return (
@@ -27,7 +26,9 @@ class SingleRobot extends React.Component {
           </div>
 
           <div className="single-robot-content col-md-8 text-center order-1 order-md-2">
+
               <div className="col-10 col-lg-8 mb-5 mb-md-0">
+
                 <p>Fuel Type: {fuelType}</p>
                 <p>Fuel Level: {fuelLevel}</p>
                 <div>Projects: { (! projects || projects.length === 0) ? 'No task assigned at the moment!' :
@@ -48,6 +49,7 @@ class SingleRobot extends React.Component {
                 <Link to={`/robots/${id}/edit`}>
                   <button className="btn btn-success" type="button">Edit</button>
                 </Link>
+
               </div>
           </div>
         </div>
@@ -56,11 +58,9 @@ class SingleRobot extends React.Component {
   }
 }
 
-const mapState = (state) => {
-  return {
+const mapState = (state) => ({
     robot: state.singleRobot
-  };
-};
+});
 
 const mapDispatch = (dispatch, {history}) => {
   return {

@@ -13,6 +13,7 @@ class CreateRobot extends React.Component {
       fuelType: 'Electric',
       fuelLevel: 0
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,12 +22,16 @@ class CreateRobot extends React.Component {
     this.setState({
       [evt.target.name]: evt.target.value,
     });
-    console.log(this.state)
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.createRobot({ ...this.state });
+    this.setState({
+      name: '',
+      fuelType: 'Electric',
+      fuelLevel: 0
+    })
   }
 
   render() {
@@ -34,8 +39,7 @@ class CreateRobot extends React.Component {
     const { handleSubmit, handleChange } = this;
 
     return (
-      <div>
-        <div id='robot-border' className="row align-items-center content">
+      <div id='robot-border' className="row align-items-center content">
 
           <div className="col-md-4 order-2 order-md-1">
             <img className="img-fluid" src='/newRobot.png' />
@@ -50,15 +54,14 @@ class CreateRobot extends React.Component {
             </div>
           </div>
 
-        </div>
       </div>
     );
   }
 }
 
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatch = (dispatch) => ({
   createRobot: (robot) => dispatch(createRobot(robot))
 });
 
-export default connect(null, mapDispatchToProps)(CreateRobot);
+export default connect(null, mapDispatch)(CreateRobot);
