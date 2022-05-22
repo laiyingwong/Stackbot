@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import Homepage from './Homepage'
 import AllRobots from './AllRobots'
 import SingleRobot from './SingleRobot'
 import CreateRobot from './CreateRobot'
@@ -13,26 +14,39 @@ const Routes = () => {
   return (
     <Router>
       <div>
-        <nav>
-          Welcome!
-          <Link to='/'>Homepage</Link>
-          <Link to='/robots'>Robots</Link>
-          <Link to='/projects'>Projects</Link>
+        <nav className="navbar navbar-expand-sm sticky-top">
+
+          <Link to="/" className="navbar-brand">
+
+            Stackb<span><i className="bi bi-robot"></i></span>t</Link>
+          <button
+            className="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#expandme"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="expandme">
+            <Link to='/' className="nav-item nav-link" >Homepage</Link>
+            <Link to='/robots' className="nav-item nav-link">Robots</Link>
+            <Link to='/projects' className="nav-item nav-link">Projects</Link>
+          </div>
         </nav>
         <main>
-          <h1>
+          {/* <h1>
             Welcome to StackBot Project Management: your robot employees are
             awaiting assignments!
           </h1>
-          <p>This seems like a nice place to get started with some Routes!</p>
+          <p>This seems like a nice place to get started with some Routes!</p> */}
         </main>
+        <Route exact path="/" component={Homepage} />
         <Route exact path="/robots" component={AllRobots} />
         <Route exact path="/robots/:robotId" component={SingleRobot} />
-        <Route path="/robots/:robotId/edit" component={EditRobot} />
+        <Route exact path="/robots/:robotId/edit" component={EditRobot} />
 
         <Route exact path="/projects" component={AllProjects} />
         <Route exact path="/projects/:projectId" component={SingleProject} />
-        <Route path="/projects/:projectId/edit" component={EditProject} />
+        <Route exact path="/projects/:projectId/edit" component={EditProject} />
 
       </div>
     </Router>

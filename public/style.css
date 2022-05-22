@@ -3,13 +3,17 @@
  * but feel free to change me to your heart's content!
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Rajdhani:wght@600&display=swap');
+
 * {
   box-sizing: border-box;
-  font-family: arial, sans-serif;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 body {
-  background: linear-gradient(#ffffff, #c0c0c0);
+  background-color: #80c3e0;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -18,11 +22,43 @@ body {
 
 nav {
   align-items: center;
-  background-color: #333333;
-  color: #c0c0c0;
+  background-color: #fcfcfc;
   display: flex;
   height: 80px;
   padding: 10px;
+}
+
+.bi-robot {
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.navbar-brand {
+  color:  #76ccff;
+  font-family: 'Major Mono Display', monospace;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.nav-item {
+  color:  #76ccff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.title {
+  color: #fcfcfc
+}
+
+hr {
+  background-color: #fcfcfc;
+  height: 4px
+}
+.content {
+  color: #fcfcfc;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 main {
@@ -32,10 +68,75 @@ main {
   justify-content: center;
 }
 
+ul li{
+  list-style: none;
+}
+
+#project-border, #robot-border {
+  border: 8px solid;
+  border-radius: 10px;
+}
 .remove-robot {
   display: inline
 }
 
-.remove-project {
-  display: inline
+.project-title, .robot-title {
+  color: #fcfcfc;
 }
+
+.remove-project {
+  display: inline;
+  margin: 10px
+}
+
+.remove-project.btn, .remove-robot.btn{
+  border-radius: 0;
+  padding: 0.375rem 0.375rem;
+  margin-bottom: 15px;
+  margin-right: 8px;
+  line-height: 0.5
+}
+
+.badge {
+  font-size: 70%;
+  margin-left: 5px;
+}
+
+.project-form {
+  color: #fcfcfc;
+  font-size: 18px
+}
+
+.single-project, .edit-project, .single-robot, .edit-robot {
+  margin-top: 30px;
+}
+
+.single-project-content, .single-robot-content {
+  font-size: 22px;
+}
+
+.single-project-btns {
+  margin-top: 30px;
+}
+
+.edit-btn {
+  margin-left: 20px;
+}
+
+.robot-form {
+  color: #fcfcfc;
+  font-size: 18px
+}
+
+.robot-form-btn {
+  margin-bottom: 10px;
+}
+
+.single-robot-div {
+  margin: 20px;
+}
+
+.assigned-projects, .assigned-robots {
+  margin: 15px;
+}
+

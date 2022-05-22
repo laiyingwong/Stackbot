@@ -15,18 +15,21 @@ export class AllRobots extends React.Component {
   render() {
     const { robots, deleteRobot } = this.props;
     return (
-      <div>
+      <div className="container" >
         <CreateRobot />
+        <h3 className="title row justify-content-center">Featured StackBots</h3>
+        <hr/>
         {(robots === [] || robots === undefined) ?
         (<h1>No Robots</h1>) :
         (<div>
           {robots.map(robot => {
             return (
-              <div key={robot.id}>
+              <div className="single-robot-div" key={robot.id}>
+                <button className="remove-robot btn btn-danger" onClick={() => deleteRobot(robot.id)}>X</button>
                 <Link to={`/robots/${robot.id}`}>
-                  <h1 className="remove-robot">{robot.name}</h1>
+                  <h3 className="remove-robot robot-title">{robot.name}</h3>
                 </Link>
-                <button className="remove-robot" onClick={() => deleteRobot(robot.id)}>❌</button>
+
                   <br />
                   <img src={robot.imageUrl} style={{width: '300px', height: 'auto'}}/>
               </div>

@@ -15,19 +15,22 @@ export class AllProjects extends React.Component {
   render() {
     const { projects, deleteProject } = this.props;
     return (
-      <div>
+      <div className="container" >
         <CreateProject />
+        <h3 className="title row justify-content-center">Projects Assigned</h3>
+        <hr/>
         {(projects === [] || projects === undefined) ?
         (<h1>No Projects</h1>) :
         (<div>
           {projects.map(project => {
             const status = project.completed ? 'completed' : 'in progress';
+            const statusBadge = project.completed ? 'badge badge-pill badge-info' : 'badge badge-pill badge-warning'
             return (
-              <div key={project.id}>
+              <div key={project.id} className="container">
+                <button className="remove-project btn btn-danger" onClick={() => deleteProject(project.id)}>X</button>
                 <Link to={`/projects/${project.id}`}>
-                <h1 className="remove-project">{`${project.title} (${status})`}</h1>
+                <h3 className="remove-project project-title">{project.title}<sup><span className={statusBadge}>{status}</span></sup></h3>
                 </Link>
-                <button className="remove-project" onClick={() => deleteProject(project.id)}>❌</button>
               </div>
             )
           })}

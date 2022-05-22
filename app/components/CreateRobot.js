@@ -35,8 +35,22 @@ class CreateRobot extends React.Component {
 
     return (
       <div>
-        <h3>Create a new robot:</h3>
-        <RobotForm name={name} fuelLevel={fuelLevel} fuelType={fuelType} buttonName={'Create!'} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <div id='robot-border' className="row align-items-center content">
+
+          <div className="col-md-4 order-2 order-md-1">
+            <img className="img-fluid" src='/newRobot.png' />
+          </div>
+
+          <div className="col-md-8 text-center order-1 order-md-2">
+            <div className="row justify-content-center">
+              <div className="col-10 col-lg-8 mb-5 mb-md-0">
+                <h3 className="title">Create a new robot:</h3>
+                <RobotForm name={name} fuelLevel={fuelLevel} fuelType={fuelType} buttonName={'Create!'} handleChange={handleChange} handleSubmit={handleSubmit} />
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     );
   }

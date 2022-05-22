@@ -53,9 +53,10 @@ class EditRobot extends React.Component {
     const { handleSubmit, handleChange } = this;
 
     return (
-      <div>
-        <h3>Edit robot: </h3>
-        <RobotForm name={name} fuelLevel={fuelLevel} buttonName={'Update!'} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <div className="container edit-robot">
+        <h1 className="title">Edit {name} </h1>
+        <hr />
+        <RobotForm name={name} fuelLevel={fuelLevel} buttonName={'Done!'} handleChange={handleChange} handleSubmit={handleSubmit} />
       </div>
     );
   }

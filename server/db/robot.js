@@ -26,6 +26,6 @@ module.exports = db.define('robot', {
 
   imageUrl: {
     type: Sequelize.TEXT,
-    defaultValue: 'https://images.unsplash.com/photo-1563207153-f403bf289096?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d2FsbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+    defaultValue: '/newRobot.png'
   }
 });

@@ -25,6 +25,10 @@ class CreateProject extends React.Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.createProject({ ...this.state });
+    this.setState({
+      title: '',
+      priority: 1
+    })
   }
 
   render() {
@@ -33,8 +37,22 @@ class CreateProject extends React.Component {
 
     return (
       <div>
-        <h3>Create a new project:</h3>
-        <ProjectForm title={title} priority={priority} buttonName={"Create!"} handleChange={handleChange} handleSubmit={handleSubmit} />
+          <div id='project-border' className="row align-items-center content">
+
+            <div className="col-md-4 order-2 order-md-1">
+              <img className="img-fluid" src='/task.png' />
+            </div>
+
+            <div className="col-md-8 text-center order-1 order-md-2">
+              <div className="row justify-content-center">
+                <div className="col-10 col-lg-8 mb-5 mb-md-0">
+                  <h3 className="title">Create a new project:</h3>
+                  <ProjectForm title={title} priority={priority} buttonName={"Create!"} handleChange={handleChange} handleSubmit={handleSubmit} />
+                </div>
+              </div>
+            </div>
+
+          </div>
       </div>
     );
   }

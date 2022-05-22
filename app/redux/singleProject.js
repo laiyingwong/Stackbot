@@ -34,11 +34,11 @@ export const fetchSingleProject = (id) => {
   }
 };
 
-export const updateSingleProject = (project) => {
+export const updateSingleProject = (project, history) => {
   return async (dispatch) => {
     const { data: updated } = await axios.put(`/api/projects/${project.id}`, project);
     dispatch(_updateSingleProject(updated));
-    // history.push(`/projects/${project.id}`);
+    history.goBack()
   }
 };
 

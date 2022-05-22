@@ -51,9 +51,10 @@ class EditProject extends React.Component {
     const { handleSubmit, handleChange } = this;
 
     return (
-      <div>
-        <h3>Edit project: </h3>
-        <ProjectForm title={title} priority={priority} buttonName={"Edit!"} handleChange={handleChange} handleSubmit={handleSubmit} />
+      <div className="container edit-project">
+        <h1 className="title"> Edit {title}</h1>
+          <hr />
+        <ProjectForm title={title} priority={priority} buttonName={"Done!"} handleChange={handleChange} handleSubmit={handleSubmit} />
       </div>
     );
   }

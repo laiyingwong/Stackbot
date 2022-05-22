@@ -16,28 +16,41 @@ class SingleRobot extends React.Component {
     const { id, name, fuelType, fuelLevel, imageUrl, projects } = this.props.robot
 
     return (
-      <div>
-        <h1>Name: {name}</h1>
-          <p>Fuel Type: {fuelType}</p>
-          <p>Fuel Level: {fuelLevel}</p>
-          <div>Projects: { (! projects || projects.length === 0) ? 'No task assigned at the moment!' :
-            (<ul>
-              {projects.map(project => (
-                <div key={project.id}>
-                  <Link to={`/projects/${project.id}`}>
-                  <li key={project.id}>{project.title}</li>
-                  </Link>
-                  <Link to={`robots/${id}/unassign-project`} >
-                  <button onClick={() => this.props.unassignSingleProject(id, project)}>Unassign</button>
-                  </Link>
-                </div>
-              ))}
-            </ul>)
-            }</div>
-        <img src={imageUrl} style={{width: '300px', height: 'auto'}}/>
-        <Link to={`/robots/${id}/edit`}>
-          <button type="button">Edit</button>
-        </Link>
+      <div className="container single-robot">
+        <h1 className="title">{name}</h1>
+        <hr />
+
+        <div className="row align-items-center content">
+
+          <div className="col-md-4 order-2 order-md-1">
+            <img src={imageUrl} className="img-fluid"/>
+          </div>
+
+          <div className="single-robot-content col-md-8 text-center order-1 order-md-2">
+              <div className="col-10 col-lg-8 mb-5 mb-md-0">
+                <p>Fuel Type: {fuelType}</p>
+                <p>Fuel Level: {fuelLevel}</p>
+                <div>Projects: { (! projects || projects.length === 0) ? 'No task assigned at the moment!' :
+                  (<ul>
+                    {projects.map(project => (
+                      <div className="assigned-projects" key={project.id}>
+                        <Link to={`/projects/${project.id}`}>
+                        <li key={project.id}>{project.title}</li>
+                        </Link>
+                        <Link to={`robots/${id}/unassign-project`} >
+                        <button className="btn btn-danger" onClick={() => this.props.unassignSingleProject(id, project)}>Unassign</button>
+                        </Link>
+                      </div>
+                    ))}
+                  </ul>)
+                  }</div>
+
+                <Link to={`/robots/${id}/edit`}>
+                  <button className="btn btn-success" type="button">Edit</button>
+                </Link>
+              </div>
+          </div>
+        </div>
       </div>
     )
   }

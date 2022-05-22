@@ -3,29 +3,29 @@ const { db, Project, Robot } = require('./server/db');
 
 const robots = [
   {
-    name: 'Hope',
+    name: 'Flash',
     fuelType: 'Gas',
     fuelLevel: 50,
-    imageUrl: 'https://images.unsplash.com/photo-1585422168344-4d9e7a8c91ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdhcyUyMHJvYm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+    imageUrl: '/Flash.png'
   },
   {
-    name: 'WALL-E',
+    name: 'Lovey-Dovey',
     fuelType: 'Diesel',
     fuelLevel: 60,
-    imageUrl: 'https://images.unsplash.com/photo-1589254066213-a0c9dc853511?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cm9ib3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+    imageUrl: '/Lovey-Dovey.png'
   },
   {
-    name: 'Rock',
+    name: 'OmnOmn',
     fuelType: 'Electric',
     fuelLevel: 70,
-    imageUrl: 'https://images.unsplash.com/photo-1546776310-eef45dd6d63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9ib3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+    imageUrl: '/OmnOmn.png'
   },
 ]
 
 const projects = [
-  { id: 1, title: 'Build barn', description: 'Lorem Ipsum', priority: 10 },
-  { id: 2, title: 'Discover love', priority: 10},
-  { id: 3, title: 'Open the pod bay doors', priority: 10 },
+  { id: 1, title: 'Mow the lawn', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores deserunt debitis aperiam laborum. Suscipit ex saepe asperiores? Nesciunt vel dolor deserunt blanditiis corporis quo. Itaque facilis molestias nulla. Doloremque, quibusdam.', priority: 10 },
+  { id: 2, title: 'Discover love', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores deserunt debitis aperiam laborum. Suscipit ex saepe asperiores? Nesciunt vel dolor deserunt blanditiis corporis quo. Itaque facilis molestias nulla. Doloremque, quibusdam.', priority: 10},
+  { id: 3, title: 'Cook dinner', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores deserunt debitis aperiam laborum. Suscipit ex saepe asperiores? Nesciunt vel dolor deserunt blanditiis corporis quo. Itaque facilis molestias nulla. Doloremque, quibusdam.', priority: 10 },
 ];
 
 
