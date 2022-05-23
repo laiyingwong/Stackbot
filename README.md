@@ -1,5 +1,9 @@
 # Junior Phase Final Project
 
+## Walkthrough Video
+
+<a href="https://youtu.be/FGzaJNBscKs">Please check me out!</a>
+
 ## Getting started
 
 1. Fork and clone this repo.

@@ -45,6 +45,15 @@ nav {
   font-weight: 500;
 }
 
+.navbar-toggler {
+  border-color: #76ccff;
+}
+
+#expandme {
+  background-color: #fcfcfc;
+}
+
+
 .title {
   color: #fcfcfc
 }
