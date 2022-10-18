@@ -23,5 +23,6 @@ This projects integrated:
 * **Express** to implement RESTful API routes and handle HTTP requests
 * **Sequelize** to interface with **PostgreSQL** database
 * **React**, **Redux** and **React-Redux** on the front end to manage important state (i.e. robots and projects) in Redux store and display robot/project data
-* **React Thunks** to perform side-effects (like AJAX requests)
+* **React-Router** to enable the navigation among views of various components 
+* **React-Thunk** to perform side-effects (like AJAX requests)
 * **Bootstrap** to create seemless and interactive user interface
